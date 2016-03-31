@@ -21,7 +21,7 @@
 </head>
 <body>
 <div id="container"></div>
-<script type="text/javascript" src="../../js/awe-loader-min.js"></script>
+<script type="text/javascript" src="../js/awe-loader-min.js"></script>
 <script type="text/javascript">
   window.addEventListener('load', function() {
     window.awe.init({
@@ -41,18 +41,18 @@
         awe.util.require([
           {
             capabilities: ['gum','webgl'],
-            files: [ 
-              [ '../../js/awe-standard-dependencies.js', '../../js/awe-standard.js'],
+            files: [
+              [ '../js/awe-standard-dependencies.js', '../js/awe-standard.js'],
               'awe-jsartoolkit-dependencies.js',
               'awe.marker_ar.js',
             ],
-            success: function() { 
-							awe.setup_scene();			
+            success: function() {
+							awe.setup_scene();
 			        awe.pois.add({ id:'poi_1', position: { x:0, y:0, z:10000 }, visible: false });
-			        awe.projections.add({ 
-			          id:'projection_1', 
+			        awe.projections.add({
+			          id:'projection_1',
 								geometry: { shape: 'cube', x:120, y:120, z:120 },
-			          material:{ type: 'phong', color: 0xFFFFFF }, 
+			          material:{ type: 'phong', color: 0xFFFFFF },
                 texture: { path: 'awe_by_buildAR.png' },
 			        }, { poi_id: 'poi_1' });
 			        awe.events.add([{
@@ -99,7 +99,7 @@
           },
           {
             capabilities: [],
-            success: function() { 
+            success: function() {
 		          document.body.innerHTML = '<p>Try this demo in the latest version of Chrome or Firefox on a PC or Android device</p>';
             },
           },

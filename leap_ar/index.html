@@ -19,7 +19,7 @@
 </head>
 <body>
 <div id="container"></div>
-<script type="text/javascript" src="../../js/awe-loader-min.js"></script>
+<script type="text/javascript" src="../js/awe-loader-min.js"></script>
 <script type="text/javascript">
   var leap_vertical = 0, leap_yaw = 0, leap_roll = 0, leap_pitch = 0;
   window.addEventListener('load', function() {
@@ -40,20 +40,20 @@
         awe.util.require([
           {
             capabilities: ['gum','webgl'],
-            files: [ 
-              [ '../../js/awe-standard-dependencies.js', '../../js/awe-standard.js'],
+            files: [
+              [ '../js/awe-standard-dependencies.js', '../js/awe-standard.js'],
               '../marker_ar/awe-jsartoolkit-dependencies.js',
               '../marker_ar/awe.marker_ar.js',
               'leap.min-0.3.0.js',
               'awe.leap_ar.js',
             ],
-            success: function() { 
-              awe.setup_scene();      
+            success: function() {
+              awe.setup_scene();
               awe.pois.add({ id:'poi_1', position: { x:0, y:0, z:-10000 }, visible: false });
-              awe.projections.add({ 
-                id:'projection_1', 
+              awe.projections.add({
+                id:'projection_1',
                 geometry: { shape: 'cube', x:120, y:120, z:120 },
-                material:{ type: 'phong', color: 0xFFFFFF }, 
+                material:{ type: 'phong', color: 0xFFFFFF },
                 texture: { path: '../marker_ar/awe_by_buildAR.png' },
               }, { poi_id: 'poi_1' });
               awe.events.add([{
@@ -75,7 +75,7 @@
                         data: {
                           visible: true,
                           position: { x:0, y:0, z:0 },
-                          matrix: t, 
+                          matrix: t,
                         },
                         where: {
                           id: 'poi_1'
@@ -119,9 +119,9 @@
                 handler: function(event) {
                   if (event.detail.frame.hands.length > 0) {
                     leap_vertical = event.detail.frame.hands[0].palmPosition[1];
-                    leap_yaw = -event.detail.frame.hands[0].yaw(); 
-                    leap_pitch = -event.detail.frame.hands[0].pitch(); 
-                    leap_roll = -event.detail.frame.hands[0].roll(); 
+                    leap_yaw = -event.detail.frame.hands[0].yaw();
+                    leap_pitch = -event.detail.frame.hands[0].pitch();
+                    leap_roll = -event.detail.frame.hands[0].roll();
                   }
                 }
               }])
@@ -129,7 +129,7 @@
           },
           {
             capabilities: [],
-            success: function() { 
+            success: function() {
               document.body.innerHTML = '<p>Try this demo in the latest version of Chrome or Firefox on a PC - NOTE: You will also require a <a href="http://leapmotion.com/">Leap Motion</a> sensor</p>';
             },
           },
